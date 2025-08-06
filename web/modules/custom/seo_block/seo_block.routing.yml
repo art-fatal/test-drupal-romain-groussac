@@ -1,0 +1,7 @@
+seo_block.settings:
+  path: '/admin/config/content/seo-block'
+  defaults:
+    _form: '\Drupal\seo_block\Form\SeoBlockSettingsForm'
+    _title: 'SEO Block Settings'
+  requirements:
+    _permission: 'administer site configuration' 

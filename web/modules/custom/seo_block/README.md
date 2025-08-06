@@ -4,7 +4,7 @@ Ce module Drupal affiche les 5 derniers articles avec leur score SEO calculé au
 
 ## Fonctionnalités
 
-- Affiche les 5 derniers articles publiés dans une liste verticale
+- Affiche les derniers articles publiés dans une liste verticale (nombre configurable)
 - Calcule automatiquement un score SEO (0-100) basé sur :
   - Longueur du titre (optimal : 30-70 caractères)
   - Longueur du contenu (minimum 300 mots recommandé)
@@ -16,6 +16,7 @@ Ce module Drupal affiche les 5 derniers articles avec leur score SEO calculé au
 - Responsive design
 - Support du mode sombre
 - Cache intelligent (5 minutes)
+- Configuration administrative pour personnaliser le nombre d'articles
 
 ## Installation
 
@@ -30,6 +31,16 @@ Ce module Drupal affiche les 5 derniers articles avec leur score SEO calculé au
    ```bash
    drush cr
    ```
+
+## Configuration
+
+Après l'installation, vous pouvez configurer le module via l'interface d'administration :
+
+1. Allez dans **Configuration > Contenu > SEO Block Settings**
+2. Entrez le nombre d'articles à afficher (entre 1 et 15)
+3. Sauvegardez la configuration
+
+Le bloc utilisera automatiquement cette configuration pour afficher le bon nombre d'articles.
 
 ## Utilisation
 

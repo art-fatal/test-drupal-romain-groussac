@@ -11,7 +11,7 @@
 function seo_block_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
   switch ($route_name) {
     case 'help.page.seo_block':
-      return '<p>' . t('Le module SEO Block affiche les 5 derniers articles avec leur score SEO.') . '</p>';
+      return '<p>' . t('Le module SEO Block affiche les derniers articles avec leur score SEO.') . '</p>';
   }
 }
 
@@ -26,4 +26,27 @@ function seo_block_theme() {
       ],
     ],
   ];
+}
+
+/**
+ * Implements hook_config_import_steps_alter().
+ */
+function seo_block_config_import_steps_alter(&$steps, $context) {
+  if (isset($context['config_name']) && $context['config_name'] === 'seo_block.settings') {
+    $steps[] = 'seo_block_cache_clear';
+  }
+}
+
+/**
+ * Implements hook_config_import_steps().
+ */
+function seo_block_config_import_steps() {
+  return ['seo_block_cache_clear'];
+}
+
+/**
+ * Clear cache when SEO Block settings are saved.
+ */
+function seo_block_cache_clear() {
+  \Drupal::service('cache_tags.invalidator')->invalidateTags(['config:seo_block.settings']);
 } 

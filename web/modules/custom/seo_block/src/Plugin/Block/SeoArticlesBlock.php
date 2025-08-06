@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * Provides a block displaying the 5 latest articles with SEO score.
@@ -27,6 +28,13 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
   protected $entityTypeManager;
 
   /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
    * Constructs a new SeoArticlesBlock instance.
    *
    * @param array $configuration
@@ -37,10 +45,13 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
    *   The plugin implementation definition.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -51,7 +62,8 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('config.factory')
     );
   }
 
@@ -71,27 +83,34 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
       ],
       '#cache' => [
         'max-age' => 300, // Cache for 5 minutes
-        'tags' => ['node_list'],
+        'tags' => [
+          'node_list',
+          'config:seo_block.settings',
+        ],
+        'contexts' => ['user.permissions'],
       ],
     ];
   }
 
   /**
-   * Get the 5 latest published articles.
+   * Get the latest published articles.
    *
    * @return array
    *   Array of article data with SEO scores.
    */
   protected function getLatestArticles() {
+    // Get the configured number of articles
+    $config = $this->configFactory->get('seo_block.settings');
+    $articlesCount = $config->get('articles_count') ?: 5;
     $query = $this->entityTypeManager->getStorage('node')->getQuery();
     $query->condition('type', 'article')
       ->condition('status', 1)
       ->sort('created', 'DESC')
-      ->range(0, 5)
+      ->range(0, $articlesCount)
       ->accessCheck(FALSE);
 
     $nids = $query->execute();
-    
+
     if (empty($nids)) {
       return [];
     }
@@ -102,7 +121,7 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
     foreach ($nodes as $node) {
       /** @var \Drupal\node\NodeInterface $node */
       $seo_score = $this->calculateSeoScore($node);
-      
+
       $articles[] = [
         'title' => $node->getTitle(),
         'url' => $node->toUrl()->toString(),
@@ -126,7 +145,7 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
    */
   protected function calculateSeoScore(NodeInterface $node) {
     $score = 0;
-    
+
     // Check title length (optimal: 50-60 characters)
     $title = $node->getTitle();
     $title_length = strlen($title);
@@ -163,4 +182,4 @@ class SeoArticlesBlock extends BlockBase implements ContainerFactoryPluginInterf
     return min(100, $score);
   }
 
-} 
+}
