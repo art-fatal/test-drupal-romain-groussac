@@ -1,0 +1,9 @@
+access seo dashboard:
+  title: 'Access SEO Dashboard'
+  description: 'Allow users to access the SEO dashboard and perform SEO-related actions.'
+  restrict access: TRUE
+
+administer seo dashboard:
+  title: 'Administer SEO Dashboard'
+  description: 'Allow users to administer SEO dashboard settings and perform all SEO actions.'
+  restrict access: TRUE 

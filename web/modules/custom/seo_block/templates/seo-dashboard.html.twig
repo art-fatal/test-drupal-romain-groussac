@@ -1,0 +1,157 @@
+{#
+/**
+ * @file
+ * Template for SEO Dashboard.
+ *
+ * Available variables:
+ * - content: Array of content items with SEO data.
+ * - stats: Array of dashboard statistics.
+ */
+#}
+
+<div class="seo-dashboard">
+  <div class="seo-dashboard__header">
+    <h1 class="seo-dashboard__title">Tableau de bord SEO</h1>
+    <div class="seo-dashboard__actions">
+      <button class="btn btn--primary" id="clear-cache-btn">
+        <i class="fas fa-trash"></i>
+        Purger le cache
+      </button>
+      <button class="btn btn--secondary" id="seo-check-btn">
+        <i class="fas fa-search"></i>
+        Vérification SEO
+      </button>
+    </div>
+  </div>
+
+  {# Statistiques #}
+  <div class="seo-dashboard__stats">
+    <div class="stat-card">
+      <div class="stat-card__icon">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <div class="stat-card__content">
+        <div class="stat-card__value">{{ stats.total_published }}</div>
+        <div class="stat-card__label">Contenus publiés</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card__icon">
+        <i class="fas fa-edit"></i>
+      </div>
+      <div class="stat-card__content">
+        <div class="stat-card__value">{{ stats.total_drafts }}</div>
+        <div class="stat-card__label">Brouillons</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card__icon">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="stat-card__content">
+        <div class="stat-card__value">{{ stats.average_seo_score }}/100</div>
+        <div class="stat-card__label">Score SEO moyen</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card__icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div class="stat-card__content">
+        <div class="stat-card__value">{{ stats.last_cache_clear }}</div>
+        <div class="stat-card__label">Dernière purge cache</div>
+      </div>
+    </div>
+  </div>
+
+  {# Liste des contenus #}
+  <div class="seo-dashboard__content">
+    <div class="content-header">
+      <h2>Liste des contenus</h2>
+      <div class="content-filters">
+        <input type="text" id="content-search" placeholder="Rechercher un contenu..." class="form-control">
+        <select id="status-filter" class="form-control">
+          <option value="">Tous les statuts</option>
+          <option value="Publié">Publié</option>
+          <option value="Brouillon">Brouillon</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="content-table-wrapper">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Type</th>
+            <th>Auteur</th>
+            <th>Date de création</th>
+            <th>Dernière modification</th>
+            <th>Statut</th>
+            <th>Score SEO</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in content %}
+            <tr class="content-row" data-status="{{ item.status }}" data-title="{{ item.title|lower }}">
+              <td>
+                <a href="{{ item.url }}" target="_blank" class="content-title">
+                  {{ item.title }}
+                </a>
+              </td>
+              <td>
+                <span class="content-type">{{ item.type }}</span>
+              </td>
+              <td>{{ item.author }}</td>
+              <td>{{ item.created|date('d/m/Y H:i') }}</td>
+              <td>{{ item.changed|date('d/m/Y H:i') }}</td>
+              <td>
+                <span class="status-badge status-badge--{{ item.status|lower }}">
+                  {{ item.status }}
+                </span>
+              </td>
+              <td>
+                <div class="seo-score">
+                  <div class="seo-score__bar">
+                    <div class="seo-score__fill" style="width: {{ item.seo_score }}%"></div>
+                  </div>
+                  <span class="seo-score__value">{{ item.seo_score }}/100</span>
+                </div>
+              </td>
+              <td>
+                <div class="content-actions">
+                  <a href="{{ item.url }}" target="_blank" class="btn btn--small" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="/node/{{ item.id }}/edit" class="btn btn--small" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {# Modal pour les résultats SEO #}
+  <div id="seo-results-modal" class="modal">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h3>Résultats de la vérification SEO</h3>
+        <button class="modal__close" id="close-modal">&times;</button>
+      </div>
+      <div class="modal__body">
+        <div id="seo-results-content"></div>
+      </div>
+    </div>
+  </div>
+
+  {# Notifications #}
+  <div id="notifications" class="notifications"></div>
+</div> 

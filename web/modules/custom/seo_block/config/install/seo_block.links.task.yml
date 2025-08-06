@@ -1,0 +1,5 @@
+seo_block.dashboard:
+  title: 'Tableau de bord SEO'
+  route_name: seo_block.dashboard
+  base_route: system.admin_content
+  weight: 10 

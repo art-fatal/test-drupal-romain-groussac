@@ -4,4 +4,17 @@ seo-block:
     theme:
       css/seo-block.css: {}
   dependencies:
-    - core/drupal 
+    - core/drupal
+
+dashboard:
+  version: 1.x
+  css:
+    theme:
+      css/seo-dashboard.css: {}
+      css/fontawesome-fix.css: {}
+  js:
+    js/seo-dashboard.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once 

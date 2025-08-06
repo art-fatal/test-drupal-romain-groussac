@@ -4,4 +4,26 @@ seo_block.settings:
     _form: '\Drupal\seo_block\Form\SeoBlockSettingsForm'
     _title: 'SEO Block Settings'
   requirements:
-    _permission: 'administer site configuration' 
+    _permission: 'administer site configuration'
+
+seo_block.dashboard:
+  path: '/admin/content/seo-dashboard'
+  defaults:
+    _controller: '\Drupal\seo_block\Controller\SeoDashboardController::dashboard'
+    _title: 'Tableau de bord SEO'
+  requirements:
+    _permission: 'access seo dashboard'
+
+seo_block.clear_cache:
+  path: '/admin/content/seo-dashboard/clear-cache'
+  defaults:
+    _controller: '\Drupal\seo_block\Controller\SeoDashboardController::clearCache'
+  requirements:
+    _permission: 'administer seo dashboard'
+
+seo_block.seo_check:
+  path: '/admin/content/seo-dashboard/seo-check'
+  defaults:
+    _controller: '\Drupal\seo_block\Controller\SeoDashboardController::runSeoCheck'
+  requirements:
+    _permission: 'administer seo dashboard' 

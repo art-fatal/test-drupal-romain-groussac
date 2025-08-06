@@ -25,6 +25,12 @@ function seo_block_theme() {
         'articles' => [],
       ],
     ],
+    'seo_dashboard' => [
+      'variables' => [
+        'content' => [],
+        'stats' => [],
+      ],
+    ],
   ];
 }
 

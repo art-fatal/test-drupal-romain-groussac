@@ -3,4 +3,11 @@ seo_block.settings:
   description: 'Configure SEO Block settings'
   route_name: seo_block.settings
   parent: system.admin_config_content
-  weight: 100 
+  weight: 100
+
+seo_block.dashboard:
+  title: 'Tableau de bord SEO'
+  description: 'Gérer et analyser le contenu SEO'
+  route_name: seo_block.dashboard
+  parent: system.admin_content
+  weight: 10 
