@@ -67,7 +67,5 @@ Projet Drupal 9 (version 9.5.11) initialisé avec `composer create-project drupa
 
 ## Migration vers Drupal 11
 
-Pour consulter le plan détaillé de migration (et rollback) de Drupal 9 vers Drupal 11, voir :
-
-➡️ [Plan de migration Drupal 9 → 11 et rollback](./MIGRATION_DRUPAL9_TO_11.md)
+[Plan de migration Drupal 9 → 11 et rollback](./MIGRATION_DRUPAL9_TO_11.md)
 

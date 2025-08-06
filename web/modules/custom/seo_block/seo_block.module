@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for SEO Block module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function seo_block_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.seo_block':
+      return '<p>' . t('Le module SEO Block affiche les 5 derniers articles avec leur score SEO.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function seo_block_theme() {
+  return [
+    'seo_articles_block' => [
+      'variables' => [
+        'articles' => [],
+      ],
+    ],
+  ];
+} 

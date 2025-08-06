@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Schema Drupal" id="zXgMlKvjzkHZ3z0ok3XJ">
+    <mxGraphModel dx="955" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Article -->
+        <mxCell id="2" value="Article" style="shape=swimlane;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="title\nbody\nfield_score_seo\nstatus\nuid\ncreated" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="2">
+          <mxGeometry x="10" y="30" width="180" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Page -->
+        <mxCell id="4" value="Page" style="shape=swimlane;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="300" y="60" width="200" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="title\nbody\nstatus\ncreated" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="4">
+          <mxGeometry x="10" y="30" width="180" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- Utilisateur -->
+        <mxCell id="6" value="Utilisateur" style="shape=swimlane;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="550" y="60" width="200" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="name\nmail\nroles\nstatus" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="6">
+          <mxGeometry x="10" y="30" width="180" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Lien Article - Utilisateur -->
+        <mxCell id="8" style="endArrow=block;" edge="1" parent="1" source="2" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Bloc SEO -->
+        <mxCell id="9" value="Bloc SEO" style="shape=swimlane;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="180" y="300" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="Affiche les 5 derniers articles\n+ score SEO" style="text;html=1;align=center;whiteSpace=wrap;" vertex="1" parent="9">
+          <mxGeometry x="10" y="30" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Lien Bloc - Article -->
+        <mxCell id="11" style="endArrow=block;" edge="1" parent="1" source="9" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

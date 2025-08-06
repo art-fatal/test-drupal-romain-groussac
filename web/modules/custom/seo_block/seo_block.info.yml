@@ -1,0 +1,5 @@
+name: SEO Block
+description: 'Affiche les 5 derniers articles avec score SEO'
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+package: Custom 

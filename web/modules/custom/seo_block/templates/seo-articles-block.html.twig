@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Template for the SEO Articles Block.
+ *
+ * Available variables:
+ * - articles: Array of article data with SEO scores.
+ */
+#}
+
+{% if articles %}
+  <div class="seo-articles-block">
+    <h3 class="seo-articles-block__title">{{ 'Derniers articles'|t }}</h3>
+
+    <div class="seo-articles-list">
+      {% for article in articles %}
+        <article class="seo-articles-item">
+          <a href="{{ article.url }}">
+            <div class="seo-articles-item-content">
+              <div class="seo-articles-item-header">
+                <h4 class="seo-articles-item-title">
+                  {{ article.title }}
+                </h4>
+                <div class="seo-articles-item-seo-score">
+                <span
+                  class="seo-score__value seo-score__value--{{ article.seo_score >= 80 ? 'excellent' : (article.seo_score >= 60 ? 'good' : (article.seo_score >= 40 ? 'average' : 'poor')) }}">
+                  {{ article.seo_score }}/100
+                </span>
+                </div>
+              </div>
+
+              {% if article.summary %}
+                <div class="seo-articles-item-summary">
+                  {{ article.summary }}
+                </div>
+              {% endif %}
+
+              <div class="seo-articles-item-meta">
+                <time class="seo-articles-item-date" datetime="{{ article.created|date('Y-m-d\TH:i:s') }}">
+                  {{ article.created|date('d/m/Y') }}
+                </time>
+              </div>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  <div class="seo-articles-block seo-articles-block--empty">
+    <p>{{ 'Aucun article disponible.'|t }}</p>
+  </div>
+{% endif %}

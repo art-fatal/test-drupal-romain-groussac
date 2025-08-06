@@ -1,10 +1,5 @@
 # Plan de migration Drupal 9 vers Drupal 11
 
-## Objectif
-Migrer le projet de Drupal 9 (9.5.11) vers Drupal 11 tout en assurant la continuité de service et la possibilité de rollback en cas d’échec.
-
----
-
 ## 1. Préparation
 
 - **Sauvegarde complète**
@@ -52,10 +47,10 @@ Migrer le projet de Drupal 9 (9.5.11) vers Drupal 11 tout en assurant la continu
 
 ## 3. Vérification post-migration
 
-- Vérifier les logs (Watchdog, PHP, DDEV)
+- Logs (Watchdog, PHP, DDEV)
 - Tester les formulaires, affichages, permissions, workflows
-- Vérifier la configuration exportée/importée
-- Vérifier les performances et l’intégrité des données
+- Configuration exportée/importée
+- Performances et Intégrité des données
 
 ---
 
@@ -81,9 +76,8 @@ Migrer le projet de Drupal 9 (9.5.11) vers Drupal 11 tout en assurant la continu
 
 ## 5. Liens utiles
 
-- [Guide officiel migration Drupal](https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-9-or-10-to-drupal-11)
-- [Compatibilité modules contrib](https://www.drupal.org/project/project_module)
-- [DDEV documentation](https://ddev.readthedocs.io/en/stable/)
+- [Guide officiel migration Drupal 9 to 10](https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-or-later/how-to-upgrade-from-drupal-9-to-drupal-10)
+- [Guide officiel migration Drupal 10 to 11](https://www.drupal.org/docs/upgrading-drupal/upgrading-from-drupal-8-or-later/how-to-upgrade-from-drupal-10-to-drupal-11)
 
 ---
 

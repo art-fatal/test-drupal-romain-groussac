@@ -1,0 +1,7 @@
+seo-block:
+  version: 1.x
+  css:
+    theme:
+      css/seo-block.css: {}
+  dependencies:
+    - core/drupal 
