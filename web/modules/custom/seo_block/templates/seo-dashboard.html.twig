@@ -14,7 +14,7 @@
   <div class="seo-dashboard__stats">
     <div class="stat-card">
       <div class="stat-card__icon">
-        <i class="fas fa-file-alt"></i>
+        <i class="fas fa-file-lines"></i>
       </div>
       <div class="stat-card__content">
         <div class="stat-card__value">{{ stats.total_published }}</div>
@@ -24,7 +24,7 @@
 
     <div class="stat-card">
       <div class="stat-card__icon">
-        <i class="fas fa-edit"></i>
+        <i class="fas fa-pen-to-square"></i>
       </div>
       <div class="stat-card__content">
         <div class="stat-card__value">{{ stats.total_drafts }}</div>
@@ -43,6 +43,7 @@
     </div>
 
     <button class="button btn" id="clear-cache-btn" style="height: 50px; width: 100%;">
+      <i class="fas fa-trash"></i>
       Purger le cache
     </button>
   </div>
@@ -50,9 +51,12 @@
   {# Liste des contenus #}
   <div class="seo-dashboard__content">
     <div class="content-header">
-      <h2>Liste des contenus</h2>
+      <h2><i class="fas fa-list"></i> Liste des contenus</h2>
       <div class="content-filters">
-        <input type="text" id="content-search" placeholder="Rechercher un contenu..." class="form-control">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="content-search" placeholder="Rechercher un contenu..." class="form-control">
+        </div>
         <select id="status-filter" class="form-control">
           <option value="">Tous les statuts</option>
           <option value="Publié">Publié</option>
@@ -71,7 +75,7 @@
             <th>Date de création</th>
             <th>Dernière modification</th>
             <th>Statut</th>
-            <th>Score SEO</th>
+            <th>Score SEO (/100)</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -90,16 +94,13 @@
               <td>{{ item.created|date('d/m/Y H:i') }}</td>
               <td>{{ item.changed|date('d/m/Y H:i') }}</td>
               <td>
-                <span class="status-badge status-badge--{{ item.status|lower }}">
+                <span class="status-badge status-badge--{{ item.status|lower }} {% if item.status == 'Publié' %}status-published{% else %}status-draft{% endif %}">
                   {{ item.status }}
                 </span>
               </td>
               <td>
                 <div class="seo-score">
-                  <div class="seo-score__bar">
-                    <div class="seo-score__fill" style="width: {{ item.seo_score }}%"></div>
-                  </div>
-                  <span class="seo-score__value">{{ item.seo_score }}/100</span>
+                  <span class="seo-score__value content-type">{{ item.seo_score }}</span>
                 </div>
               </td>
               <td>
@@ -108,7 +109,7 @@
                     <i class="fas fa-eye"></i>
                   </a>
                   <a href="/node/{{ item.id }}/edit" class="btn btn--small" title="Modifier">
-                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-pen-to-square"></i>
                   </a>
                 </div>
               </td>
@@ -118,8 +119,6 @@
       </table>
     </div>
   </div>
-
-
 
   {# Notifications #}
   <div id="notifications" class="notifications"></div>
