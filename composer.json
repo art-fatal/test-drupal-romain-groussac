@@ -20,7 +20,6 @@
         "drupal/core-composer-scaffold": "^9.5",
         "drupal/core-project-message": "^9.5",
         "drupal/core-recommended": "^9.5",
-        "drupal/default_content": "^2.0@alpha",
         "drupal/fontawesome": "^2.26"
     },
     "conflict": {

@@ -34,9 +34,19 @@ Projet Drupal 9 (version 9.5.11) initialisé avec `composer create-project drupa
    ```
 
 4. **Installer Drupal**
-- Installation Drupal en utilisant Drush :
+- Importation des configurations :
   ```bash
-  ddev drush site:install --account-name=admin --account-pass=admin -y
+  drush config:import --source=config/sync
+  ```
+
+- Importation bdd:
+  ```bash
+  ddev import-db --src=backup.sql.gz
+  ```
+
+- Importation fichiers media:
+  ```bash
+  tar xzf files_backup.tar.gz -C web/sites/default/
   ```
 
 ## Accès au site

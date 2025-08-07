@@ -1,0 +1,25 @@
+uuid: c57acdd2-4402-4d86-a462-a59260688300
+langcode: en
+status: true
+dependencies:
+  module:
+    - seo_block
+    - system
+  theme:
+    - olivero
+id: seoarticlesblock
+theme: olivero
+region: content
+weight: -7
+provider: null
+plugin: seo_articles_block
+settings:
+  id: seo_articles_block
+  label: 'SEO Articles Block'
+  label_display: '0'
+  provider: seo_block
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node

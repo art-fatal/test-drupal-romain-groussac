@@ -1,5 +1,10 @@
 # test-drupal-romain-groussac
 
+
+### [Prérequis et procedure d'installation](docs/5-prerequis.md)
+### [Choix technique](docs/6-choix-technique.md)
+
+-----
 ## Reponse du test
 ### [Partie 1 – Modélisation & Migration](docs/1-modelage-et-migration.md)
 ### [Partie 2 – Développement d’un module custom](docs/2-developpement-du-module-custom.md)
@@ -8,5 +13,3 @@
 
 ------
 
-### [Prérequis et procedure d'installation](docs/5-prerequis.md)
-### [Choix technique](docs/6-choix-technique.md)
