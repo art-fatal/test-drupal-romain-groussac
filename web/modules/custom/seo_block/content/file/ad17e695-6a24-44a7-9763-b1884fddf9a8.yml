@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: ad17e695-6a24-44a7-9763-b1884fddf9a8
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: aeronotique-esapce.jpg
+  uri:
+    -
+      value: 'public://2025-08/aeronotique-esapce.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 123345
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754511907

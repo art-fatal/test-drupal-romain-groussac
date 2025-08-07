@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: e2edf0f2-9af5-4736-ab24-ec871d00e272
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: ameublement.jpg
+  uri:
+    -
+      value: 'public://2025-08/ameublement.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 37662
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754493792

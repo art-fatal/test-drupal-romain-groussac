@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: c46dc26a-5da1-4184-8433-4943edc5e058
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: medical.jpg
+  uri:
+    -
+      value: 'public://2025-08/medical.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 25955
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754493925

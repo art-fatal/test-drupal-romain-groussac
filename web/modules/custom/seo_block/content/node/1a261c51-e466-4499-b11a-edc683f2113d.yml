@@ -1,0 +1,64 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 1a261c51-e466-4499-b11a-edc683f2113d
+  bundle: article
+  default_langcode: en
+  depends:
+    4c1c775f-2eb2-4efd-899d-03aca0edbc37: file
+    ec5d1e82-be67-4667-9f9d-c77108bfaab9: taxonomy_term
+    04df6576-27ee-4759-8e53-9253095aa200: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'My first article'
+  created:
+    -
+      value: 1754489849
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+  body:
+    -
+      value: '<p>no body</p>'
+      format: basic_html
+      summary: ''
+  comment:
+    -
+      status: 2
+      cid: 0
+      last_comment_timestamp: 1754490115
+      last_comment_name: ''
+      last_comment_uid: 1
+      comment_count: 0
+  field_image:
+    -
+      entity: 4c1c775f-2eb2-4efd-899d-03aca0edbc37
+      alt: artinimaux
+      title: ''
+      width: 1024
+      height: 1024
+  field_tags:
+    -
+      entity: ec5d1e82-be67-4667-9f9d-c77108bfaab9
+    -
+      entity: 04df6576-27ee-4759-8e53-9253095aa200

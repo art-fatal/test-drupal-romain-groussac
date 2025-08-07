@@ -1,0 +1,61 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 054caa98-df92-47be-abcc-9765f4c2e80f
+  bundle: article
+  default_langcode: en
+  depends:
+    4e2c5ee0-7862-46f0-ac0b-5aa8f0aa8be1: file
+    cbbcb1fc-1229-4995-8ea7-dd2d5701bb0e: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'My second article'
+  created:
+    -
+      value: 1754491474
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+  body:
+    -
+      value: '<p>Art de la table est un article tres interessant pour tou les gens</p>'
+      format: basic_html
+      summary: ''
+  comment:
+    -
+      status: 2
+      cid: 0
+      last_comment_timestamp: 1754491521
+      last_comment_name: ''
+      last_comment_uid: 1
+      comment_count: 0
+  field_image:
+    -
+      entity: 4e2c5ee0-7862-46f0-ac0b-5aa8f0aa8be1
+      alt: 'Art de la table'
+      title: ''
+      width: 500
+      height: 500
+  field_tags:
+    -
+      entity: cbbcb1fc-1229-4995-8ea7-dd2d5701bb0e

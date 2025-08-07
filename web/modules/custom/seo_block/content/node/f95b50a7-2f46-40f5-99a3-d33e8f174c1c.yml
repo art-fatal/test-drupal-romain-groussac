@@ -1,0 +1,70 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f95b50a7-2f46-40f5-99a3-d33e8f174c1c
+  bundle: article
+  default_langcode: en
+  depends:
+    c46dc26a-5da1-4184-8433-4943edc5e058: file
+    1d2f7959-72cb-4b94-99f0-fee69dd2e02c: taxonomy_term
+    be3df28f-14d6-43fc-8ef5-108260a1f158: taxonomy_term
+    4ab5a985-d0b3-4ce0-80c4-07599110ed5d: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  revision_log:
+    -
+      value: 'Ad minim perspiciati'
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Medicales
+  created:
+    -
+      value: 1754493915
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+  body:
+    -
+      value: '<p>steto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical steto, maro, medical v steto, maro, medical steto, maro, medical steto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medicalsteto, maro, medical</p>'
+      format: restricted_html
+      summary: ''
+  comment:
+    -
+      status: 2
+      cid: 0
+      last_comment_timestamp: 1754493954
+      last_comment_name: ''
+      last_comment_uid: 1
+      comment_count: 0
+  field_image:
+    -
+      entity: c46dc26a-5da1-4184-8433-4943edc5e058
+      alt: 'Odio dolorem pariatur Eligendi qui asperiores nobis culpa non modi minim temporibus assumenda aliqua'
+      title: ''
+      width: 500
+      height: 500
+  field_tags:
+    -
+      entity: 1d2f7959-72cb-4b94-99f0-fee69dd2e02c
+    -
+      entity: be3df28f-14d6-43fc-8ef5-108260a1f158
+    -
+      entity: 4ab5a985-d0b3-4ce0-80c4-07599110ed5d

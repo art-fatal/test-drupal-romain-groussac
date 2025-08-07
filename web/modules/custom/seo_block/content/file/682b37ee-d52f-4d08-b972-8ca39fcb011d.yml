@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 682b37ee-d52f-4d08-b972-8ca39fcb011d
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: batiment.jpg
+  uri:
+    -
+      value: 'public://2025-08/batiment.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 21591
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754493751

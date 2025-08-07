@@ -1,0 +1,61 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 11db16ae-c49c-423f-b143-930496ea5eea
+  bundle: article
+  default_langcode: en
+  depends:
+    fdd519d9-45a3-490b-9d32-d0ecd7ff23d4: file
+    88077cc4-3053-4ea2-88e3-c8b4450dfe07: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Contrat
+  created:
+    -
+      value: 1754493825
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+  body:
+    -
+      value: '<p>azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr azeraerrae lorem ipsum dolot dazi tavo mle az llasfn aksfn kasnf lasnf lasn lasfn laskf jnalsf alsfkj haljkfh jlakhrzl kajhzr&nbsp;</p>'
+      format: basic_html
+      summary: ''
+  comment:
+    -
+      status: 2
+      cid: 0
+      last_comment_timestamp: 1754493857
+      last_comment_name: ''
+      last_comment_uid: 1
+      comment_count: 0
+  field_image:
+    -
+      entity: fdd519d9-45a3-490b-9d32-d0ecd7ff23d4
+      alt: carte
+      title: ''
+      width: 500
+      height: 500
+  field_tags:
+    -
+      entity: 88077cc4-3053-4ea2-88e3-c8b4450dfe07

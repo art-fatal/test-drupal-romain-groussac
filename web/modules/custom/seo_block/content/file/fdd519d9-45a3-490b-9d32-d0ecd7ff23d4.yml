@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: fdd519d9-45a3-490b-9d32-d0ecd7ff23d4
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: cession-carte.jpg
+  uri:
+    -
+      value: 'public://2025-08/cession-carte.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 22472
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754493835

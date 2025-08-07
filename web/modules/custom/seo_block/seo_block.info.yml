@@ -2,4 +2,34 @@ name: SEO Block
 description: 'Affiche les 5 derniers articles avec score SEO'
 type: module
 core_version_requirement: ^9 || ^10 || ^11
-package: Custom 
+package: Custom
+default_content:
+  node:
+    - 1a261c51-e466-4499-b11a-edc683f2113d
+    - 7c1b0b3e-7e21-4480-84bb-5b68d90b9340
+    - 8a866791-afee-4a86-b923-c25dd127f1ec
+    - 11db16ae-c49c-423f-b143-930496ea5eea
+    - 054caa98-df92-47be-abcc-9765f4c2e80f
+    - c37265b8-075c-4d67-b11a-c5840f24838f
+    - f95b50a7-2f46-40f5-99a3-d33e8f174c1c
+  file:
+    - 4c1c775f-2eb2-4efd-899d-03aca0edbc37
+    - 682b37ee-d52f-4d08-b972-8ca39fcb011d
+    - 4e2c5ee0-7862-46f0-ac0b-5aa8f0aa8be1
+    - ad17e695-6a24-44a7-9763-b1884fddf9a8
+    - c46dc26a-5da1-4184-8433-4943edc5e058
+    - e2edf0f2-9af5-4736-ab24-ec871d00e272
+    - fdd519d9-45a3-490b-9d32-d0ecd7ff23d4
+  taxonomy_term:
+    - 04df6576-27ee-4759-8e53-9253095aa200
+    - 1d2f7959-72cb-4b94-99f0-fee69dd2e02c
+    - 2bead273-120a-4987-8242-f0d25ae94fce
+    - 49004fff-4616-4e14-a1e8-e3ea95bf0db1
+    - 4ab5a985-d0b3-4ce0-80c4-07599110ed5d
+    - 691b3e2c-1a71-46e5-9b98-2b6dfdd3d066
+    - 88077cc4-3053-4ea2-88e3-c8b4450dfe07
+    - 9430dba0-9034-46ff-b608-d2abf90aad2c
+    - be3df28f-14d6-43fc-8ef5-108260a1f158
+    - cbbcb1fc-1229-4995-8ea7-dd2d5701bb0e
+    - ec5d1e82-be67-4667-9f9d-c77108bfaab9
+    - ee1e75bf-a72b-4e7c-9ecf-4caa318e256e

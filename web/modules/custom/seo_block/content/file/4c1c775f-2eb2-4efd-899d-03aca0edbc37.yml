@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 4c1c775f-2eb2-4efd-899d-03aca0edbc37
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Artinimaux.png
+  uri:
+    -
+      value: 'public://2025-08/Artinimaux.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 658192
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754489873

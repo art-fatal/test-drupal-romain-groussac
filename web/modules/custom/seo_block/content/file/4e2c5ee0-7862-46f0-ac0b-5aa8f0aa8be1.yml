@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 4e2c5ee0-7862-46f0-ac0b-5aa8f0aa8be1
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: art-de-la-table.jpg
+  uri:
+    -
+      value: 'public://2025-08/art-de-la-table.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 34834
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1754491502

@@ -1,0 +1,52 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c37265b8-075c-4d67-b11a-c5840f24838f
+  bundle: article
+  default_langcode: en
+  depends:
+    e2edf0f2-9af5-4736-ab24-ec871d00e272: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Home design'
+  created:
+    -
+      value: 1754493787
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+  comment:
+    -
+      status: 2
+      cid: 0
+      last_comment_timestamp: 1754493798
+      last_comment_name: ''
+      last_comment_uid: 1
+      comment_count: 0
+  field_image:
+    -
+      entity: e2edf0f2-9af5-4736-ab24-ec871d00e272
+      alt: azer
+      title: ''
+      width: 500
+      height: 500
