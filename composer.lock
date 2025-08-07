@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74851128eb87ceebe9ad6348bff632e0",
+    "content-hash": "aefca1c5d29a84b3f9e191b602372bb7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -932,92 +932,6 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core."
-        },
-        {
-            "name": "drupal/tiny_slider",
-            "version": "1.1.0-rc5",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/tiny_slider.git",
-                "reference": "1.1.0-rc5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tiny_slider-1.1.0-rc5.zip",
-                "reference": "1.1.0-rc5",
-                "shasum": "d58a46cdfedcace2d129906718a97ffdd8db87cf"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "1.1.0-rc5",
-                    "datestamp": "1749338301",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^10"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "belazoth",
-                    "homepage": "https://www.drupal.org/user/3397316"
-                },
-                {
-                    "name": "cedrichillion",
-                    "homepage": "https://www.drupal.org/user/3091823"
-                },
-                {
-                    "name": "danielzigo",
-                    "homepage": "https://www.drupal.org/user/3569258"
-                },
-                {
-                    "name": "endrukk",
-                    "homepage": "https://www.drupal.org/user/3669887"
-                },
-                {
-                    "name": "hebl",
-                    "homepage": "https://www.drupal.org/user/3688118"
-                },
-                {
-                    "name": "ipwa",
-                    "homepage": "https://www.drupal.org/user/130909"
-                },
-                {
-                    "name": "Lisa-Webster",
-                    "homepage": "https://www.drupal.org/user/3682291"
-                },
-                {
-                    "name": "paul.moloney",
-                    "homepage": "https://www.drupal.org/user/274172"
-                },
-                {
-                    "name": "welly",
-                    "homepage": "https://www.drupal.org/user/354705"
-                },
-                {
-                    "name": "xiwar",
-                    "homepage": "https://www.drupal.org/user/3309931"
-                }
-            ],
-            "description": "Drupal integration for Tiny Slider",
-            "homepage": "https://www.drupal.org/project/tiny_slider",
-            "support": {
-                "source": "https://git.drupalcode.org/project/tiny_slider",
-                "issues": "https://www.drupal.org/project/issues/tiny_slider"
-            }
         },
         {
             "name": "egulias/email-validator",
@@ -6431,9 +6345,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "drupal/tiny_slider": 5
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},

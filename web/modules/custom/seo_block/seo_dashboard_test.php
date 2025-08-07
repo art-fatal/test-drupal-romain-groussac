@@ -19,7 +19,6 @@ if (class_exists('Drupal\seo_block\Controller\SeoDashboardController')) {
 $routes = [
   'seo_block.dashboard' => '/admin/content/seo-dashboard',
   'seo_block.clear_cache' => '/admin/content/seo-dashboard/clear-cache',
-  'seo_block.seo_check' => '/admin/content/seo-dashboard/seo-check',
 ];
 
 foreach ($routes as $route_name => $path) {

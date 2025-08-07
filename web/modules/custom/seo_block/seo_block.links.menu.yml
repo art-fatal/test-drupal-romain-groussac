@@ -6,8 +6,8 @@ seo_block.settings:
   weight: 100
 
 seo_block.dashboard:
-  title: 'Tableau de bord SEO'
+  title: 'Tableau de bord & Reporting'
   description: 'Gérer et analyser le contenu SEO'
   route_name: seo_block.dashboard
   parent: system.admin_content
-  weight: 10 
+  weight: 10

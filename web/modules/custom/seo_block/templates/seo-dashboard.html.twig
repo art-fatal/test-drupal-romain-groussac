@@ -10,20 +10,6 @@
 #}
 
 <div class="seo-dashboard">
-  <div class="seo-dashboard__header">
-    <h1 class="seo-dashboard__title">Tableau de bord SEO</h1>
-    <div class="seo-dashboard__actions">
-      <button class="btn btn--primary" id="clear-cache-btn">
-        <i class="fas fa-trash"></i>
-        Purger le cache
-      </button>
-      <button class="btn btn--secondary" id="seo-check-btn">
-        <i class="fas fa-search"></i>
-        Vérification SEO
-      </button>
-    </div>
-  </div>
-
   {# Statistiques #}
   <div class="seo-dashboard__stats">
     <div class="stat-card">
@@ -56,15 +42,9 @@
       </div>
     </div>
 
-    <div class="stat-card">
-      <div class="stat-card__icon">
-        <i class="fas fa-clock"></i>
-      </div>
-      <div class="stat-card__content">
-        <div class="stat-card__value">{{ stats.last_cache_clear }}</div>
-        <div class="stat-card__label">Dernière purge cache</div>
-      </div>
-    </div>
+    <button class="button btn" id="clear-cache-btn" style="height: 50px; width: 100%;">
+      Purger le cache
+    </button>
   </div>
 
   {# Liste des contenus #}
@@ -139,19 +119,8 @@
     </div>
   </div>
 
-  {# Modal pour les résultats SEO #}
-  <div id="seo-results-modal" class="modal">
-    <div class="modal__content">
-      <div class="modal__header">
-        <h3>Résultats de la vérification SEO</h3>
-        <button class="modal__close" id="close-modal">&times;</button>
-      </div>
-      <div class="modal__body">
-        <div id="seo-results-content"></div>
-      </div>
-    </div>
-  </div>
+
 
   {# Notifications #}
   <div id="notifications" class="notifications"></div>
-</div> 
+</div>

@@ -9,11 +9,7 @@
   margin-right: 8px;
 }
 
-/* Icône loupe pour vérification SEO */
-.btn--secondary::before {
-  content: "🔍";
-  margin-right: 8px;
-}
+
 
 /* Icône œil pour voir */
 .content-actions .btn:first-child::before {
@@ -47,11 +43,6 @@
   content: "✕";
 }
 
-/* Icône spinner pour loading */
-.loading::before {
-  content: "⏳";
-}
-
 /* Masquer les icônes FontAwesome si elles existent */
 .fas,
 .fa {
@@ -68,4 +59,4 @@
 .fas:not(:empty) ~ .btn::before,
 .fa:not(:empty) ~ .btn::before {
   display: none;
-} 
+}
