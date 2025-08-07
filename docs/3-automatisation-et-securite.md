@@ -1,5 +1,12 @@
 # Partie 3 – Automatisation & Sécurité
 1. Script ou cron pour sauvegarder la base et purger le cache regulierement
+    ```bash
+    ddev export-db --file=backup.sql.gz
+    ```
+
+    ```bash
+    ddev drush cr
+    ```
 
 2. headers de sécurité ou configuration serveur nécessaires pour durcir l’instance Drupal.
    1. Headers de Sécurité Recommandés
