@@ -29,6 +29,8 @@ class SeoDashboardController extends ControllerBase
    */
   protected $messenger;
 
+  const ITEMS_PER_PAGE = 5;
+
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager,
     CacheBackendInterface      $cache_backend,
@@ -52,33 +54,52 @@ class SeoDashboardController extends ControllerBase
     );
   }
 
-  public function dashboard()
+  public function dashboard(Request $request)
   {
-    $content = $this->getContentList();
+    $page = (int) $request->query->get('page', 0);
+    $itemsPerPage = (int) $request->query->get('items_per_page', self::ITEMS_PER_PAGE);
+
+    $itemsPerPage = min(max($itemsPerPage, 5), 100);
+
+    $contentData = $this->getContentList($page, $itemsPerPage);
     $stats = $this->getDashboardStats();
 
-    return [
+    $build = [
       '#theme' => 'seo_dashboard',
-      '#content' => $content,
+      '#content' => $contentData['content'],
+      '#pagination' => $contentData['pagination'],
       '#stats' => $stats,
       '#attached' => [
         'library' => ['seo_block/dashboard'],
       ],
     ];
+
+    return $build;
   }
 
-  protected function getContentList()
+  protected function getContentList($page = 0, $itemsPerPage = self::ITEMS_PER_PAGE)
   {
     $content = [];
+    $pagination = [];
 
     try {
-      $query = $this->entityTypeManager->getStorage('node')
-        ->getQuery()
-        ->sort('changed', 'DESC')
-        ->range(0, 50)
+      $nodeStorage = $this->entityTypeManager->getStorage('node');
+
+      // Compter le nombre total de nœuds
+      $totalCount = $nodeStorage->getQuery()
+        ->count()
         ->execute();
 
-      $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($query);
+      // Calculer l'offset
+      $offset = $page * $itemsPerPage;
+
+      // Récupérer les nœuds pour la page courante
+      $query = $nodeStorage->getQuery()
+        ->sort('changed', 'DESC')
+        ->range($offset, $itemsPerPage)
+        ->execute();
+
+      $nodes = $nodeStorage->loadMultiple($query);
 
       foreach ($nodes as $node) {
         $content[] = [
@@ -93,11 +114,70 @@ class SeoDashboardController extends ControllerBase
           'url' => $node->toUrl()->toString(),
         ];
       }
+
+      $pagination = $this->calculatePagination($totalCount, $page, $itemsPerPage);
     } catch (Exception $e) {
       $this->messenger->addError($this->t('Erreur lors du chargement du contenu: @error', ['@error' => $e->getMessage()]));
     }
 
-    return $content;
+    return [
+      'content' => $content,
+      'pagination' => $pagination,
+    ];
+  }
+
+  protected function calculatePagination($totalCount, $currentPage, $itemsPerPage)
+  {
+    $totalPages = ceil($totalCount / $itemsPerPage);
+    $currentPage = max(0, min($currentPage, $totalPages - 1));
+
+    // Calculer les pages à afficher
+    $pagesToShow = 5;
+    $startPage = max(0, $currentPage - floor($pagesToShow / 2));
+    $endPage = min($totalPages - 1, $startPage + $pagesToShow - 1);
+
+    // Ajuster le début si on est près de la fin
+    if ($endPage - $startPage < $pagesToShow - 1) {
+      $startPage = max(0, $endPage - $pagesToShow + 1);
+    }
+
+    $pages = [];
+    for ($i = $startPage; $i <= $endPage; $i++) {
+      $pages[] = [
+        'number' => $i + 1,
+        'page' => $i,
+        'current' => $i === $currentPage,
+        'url' => $this->generatePageUrl($i, $itemsPerPage),
+      ];
+    }
+
+    return [
+      'current_page' => $currentPage + 1,
+      'total_pages' => $totalPages,
+      'total_items' => $totalCount,
+      'items_per_page' => $itemsPerPage,
+      'start_item' => ($currentPage * $itemsPerPage) + 1,
+      'end_item' => min(($currentPage + 1) * $itemsPerPage, $totalCount),
+      'pages' => $pages,
+      'has_previous' => $currentPage > 0,
+      'has_next' => $currentPage < $totalPages - 1,
+      'previous_url' => $this->generatePageUrl($currentPage - 1, $itemsPerPage),
+      'next_url' => $this->generatePageUrl($currentPage + 1, $itemsPerPage),
+      'first_url' => $this->generatePageUrl(0, $itemsPerPage),
+      'last_url' => $this->generatePageUrl($totalPages - 1, $itemsPerPage),
+    ];
+  }
+
+  protected function generatePageUrl($page, $itemsPerPage)
+  {
+    $routeName = 'seo_block.dashboard';
+    $routeParameters = [];
+    $query = [
+      'page' => $page,
+      'items_per_page' => $itemsPerPage,
+    ];
+
+    return \Drupal::urlGenerator()->generateFromRoute($routeName, $routeParameters, ['query' => $query]);
   }
 
   protected function calculateSeoScore($node)
@@ -139,40 +219,37 @@ class SeoDashboardController extends ControllerBase
   protected function getDashboardStats()
   {
     try {
-      $node_storage = $this->entityTypeManager->getStorage('node');
+      $nodeStorage = $this->entityTypeManager->getStorage('node');
 
-      // Total published nodes
-      $published_query = $node_storage->getQuery()
+      $publishedQuery = $nodeStorage->getQuery()
         ->condition('status', 1)
         ->count()
         ->execute();
 
-      // Total draft nodes
-      $draft_query = $node_storage->getQuery()
+      $draftQuery = $nodeStorage->getQuery()
         ->condition('status', 0)
         ->count()
         ->execute();
 
-      // Average SEO score
-      $all_nodes_query = $node_storage->getQuery()
+      $allNodesQuery = $nodeStorage->getQuery()
         ->condition('status', 1)
         ->range(0, 100)
         ->execute();
 
-      $all_nodes = $node_storage->loadMultiple($all_nodes_query);
-      $total_score = 0;
-      $node_count = count($all_nodes);
+      $allNodes = $nodeStorage->loadMultiple($allNodesQuery);
+      $totalScore = 0;
+      $nodeCount = count($allNodes);
 
-      foreach ($all_nodes as $node) {
-        $total_score += $this->calculateSeoScore($node);
+      foreach ($allNodes as $node) {
+        $totalScore += $this->calculateSeoScore($node);
       }
 
-      $average_score = $node_count > 0 ? round($total_score / $node_count) : 0;
+      $averageScore = $nodeCount > 0 ? round($totalScore / $nodeCount) : 0;
 
       return [
-        'total_published' => $published_query,
-        'total_drafts' => $draft_query,
-        'average_seo_score' => $average_score,
+        'total_published' => $publishedQuery,
+        'total_drafts' => $draftQuery,
+        'average_seo_score' => $averageScore,
       ];
     } catch (Exception $e) {
       return [
@@ -186,7 +263,7 @@ class SeoDashboardController extends ControllerBase
   public function clearCache(Request $request) {
     try {
       drupal_flush_all_caches();
-      
+
       // Vider les caches spécifiques importants
       \Drupal::service('cache_tags.invalidator')->invalidateTags(['*']);
       \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();

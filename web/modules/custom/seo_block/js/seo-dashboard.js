@@ -30,6 +30,11 @@
         self.filterContent();
       });
 
+      // Items per page selector
+      $('#items-per-page', context).once('seo-dashboard').on('change', function () {
+        self.changeItemsPerPage($(this).val());
+      });
+
       // Initialize content filtering
       this.filterContent();
     },
@@ -62,7 +67,22 @@
       });
     },
 
-
+    changeItemsPerPage: function (itemsPerPage) {
+      // Get current URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      // Update items_per_page parameter
+      urlParams.set('items_per_page', itemsPerPage);
+      
+      // Reset to first page when changing items per page
+      urlParams.set('page', '0');
+      
+      // Build new URL
+      const newUrl = window.location.pathname + '?' + urlParams.toString();
+      
+      // Redirect to new URL
+      window.location.href = newUrl;
+    },
 
     filterContent: function () {
       const searchTerm = $('#content-search').val().toLowerCase();

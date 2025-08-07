@@ -5,6 +5,7 @@
  *
  * Available variables:
  * - content: Array of content items with SEO data.
+ * - pagination: Array of pagination data.
  * - stats: Array of dashboard statistics.
  */
 #}
@@ -62,8 +63,23 @@
           <option value="Publié">Publié</option>
           <option value="Brouillon">Brouillon</option>
         </select>
+        <select id="items-per-page" class="form-control">
+          <option value="5" {% if pagination.items_per_page == 5 %}selected{% endif %}>5 par page</option>
+          <option value="20" {% if pagination.items_per_page == 20 %}selected{% endif %}>20 par page</option>
+          <option value="50" {% if pagination.items_per_page == 50 %}selected{% endif %}>50 par page</option>
+          <option value="100" {% if pagination.items_per_page == 100 %}selected{% endif %}>100 par page</option>
+        </select>
       </div>
     </div>
+
+    {# Informations de pagination #}
+    {% if pagination.total_items > 0 %}
+      <div class="pagination-info">
+        <span class="pagination-info__text">
+          Affichage de {{ pagination.start_item }} à {{ pagination.end_item }} sur {{ pagination.total_items }} contenus
+        </span>
+      </div>
+    {% endif %}
 
     <div class="content-table-wrapper">
       <table class="content-table">
@@ -105,7 +121,7 @@
               </td>
               <td>
                 <div class="content-actions">
-                  <a href="{{ item.url }}" target="_blank" class="btn btn--small" title="Voir">
+                  <a href="{{ item.url }}" class="btn btn--small" title="Voir">
                     <i class="fas fa-eye"></i>
                   </a>
                   <a href="/node/{{ item.id }}/edit" class="btn btn--small" title="Modifier">
@@ -118,6 +134,60 @@
         </tbody>
       </table>
     </div>
+
+    {# Pagination #}
+    <!-- Debug: pagination variable exists: {{ pagination is defined ? 'YES' : 'NO' }} -->
+    <!-- Debug: pagination is null: {{ pagination is null ? 'YES' : 'NO' }} -->
+    <!-- Debug: pagination is empty: {{ pagination is empty ? 'YES' : 'NO' }} -->
+    <!-- Debug: pagination type: {{ pagination|json_encode }} -->
+    {% if pagination is defined and pagination is not null and pagination.total_pages > 0 %}
+      <div class="pagination">
+        <div class="pagination__info">
+          <span>Page {{ pagination.current_page }} sur {{ pagination.total_pages }}</span>
+        </div>
+
+        <div class="pagination__controls">
+          {# Bouton première page #}
+          {% if pagination.has_previous %}
+            <a href="{{ pagination.first_url }}" class="pagination__btn pagination__btn--first" title="Première page">
+              <i class="fas fa-angle-double-left"></i>
+            </a>
+          {% endif %}
+
+          {# Bouton page précédente #}
+          {% if pagination.has_previous %}
+            <a href="{{ pagination.previous_url }}" class="pagination__btn pagination__btn--prev" title="Page précédente">
+              <i class="fas fa-angle-left"></i>
+            </a>
+          {% endif %}
+
+          {# Numéros de pages #}
+          <div class="pagination__pages">
+            {% for page in pagination.pages %}
+              {% if page.current %}
+                <span class="pagination__page pagination__page--current">{{ page.number }}</span>
+              {% else %}
+                <a href="{{ page.url }}" class="pagination__page">{{ page.number }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {# Bouton page suivante #}
+          {% if pagination.has_next %}
+            <a href="{{ pagination.next_url }}" class="pagination__btn pagination__btn--next" title="Page suivante">
+              <i class="fas fa-angle-right"></i>
+            </a>
+          {% endif %}
+
+          {# Bouton dernière page #}
+          {% if pagination.has_next %}
+            <a href="{{ pagination.last_url }}" class="pagination__btn pagination__btn--last" title="Dernière page">
+              <i class="fas fa-angle-double-right"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
   </div>
 
   {# Notifications #}

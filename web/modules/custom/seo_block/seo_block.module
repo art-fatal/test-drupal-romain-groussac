@@ -28,6 +28,7 @@ function seo_block_theme() {
     'seo_dashboard' => [
       'variables' => [
         'content' => [],
+        'pagination' => [],
         'stats' => [],
       ],
     ],
