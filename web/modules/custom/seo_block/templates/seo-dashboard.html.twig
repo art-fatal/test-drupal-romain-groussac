@@ -72,65 +72,57 @@
       </div>
     </div>
 
-    {# Informations de pagination #}
-    {% if pagination.total_items > 0 %}
-      <div class="pagination-info">
-        <span class="pagination-info__text">
-          Affichage de {{ pagination.start_item }} à {{ pagination.end_item }} sur {{ pagination.total_items }} contenus
-        </span>
-      </div>
-    {% endif %}
-
     <div class="content-table-wrapper">
       <table class="content-table">
         <thead>
-          <tr>
-            <th>Titre</th>
-            <th>Type</th>
-            <th>Auteur</th>
-            <th>Date de création</th>
-            <th>Dernière modification</th>
-            <th>Statut</th>
-            <th>Score SEO (/100)</th>
-            <th>Actions</th>
-          </tr>
+        <tr>
+          <th>Titre</th>
+          <th>Type</th>
+          <th>Auteur</th>
+          <th>Date de création</th>
+          <th>Dernière modification</th>
+          <th>Statut</th>
+          <th>Score SEO (/100)</th>
+          <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
-          {% for item in content %}
-            <tr class="content-row" data-status="{{ item.status }}" data-title="{{ item.title|lower }}">
-              <td>
-                <a href="{{ item.url }}" target="_blank" class="content-title">
-                  {{ item.title }}
-                </a>
-              </td>
-              <td>
-                <span class="content-type">{{ item.type }}</span>
-              </td>
-              <td>{{ item.author }}</td>
-              <td>{{ item.created|date('d/m/Y H:i') }}</td>
-              <td>{{ item.changed|date('d/m/Y H:i') }}</td>
-              <td>
-                <span class="status-badge status-badge--{{ item.status|lower }} {% if item.status == 'Publié' %}status-published{% else %}status-draft{% endif %}">
+        {% for item in content %}
+          <tr class="content-row" data-status="{{ item.status }}" data-title="{{ item.title|lower }}">
+            <td>
+              <a href="{{ item.url }}" target="_blank" class="content-title">
+                {{ item.title }}
+              </a>
+            </td>
+            <td>
+              <span class="content-type">{{ item.type }}</span>
+            </td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.created|date('d/m/Y H:i') }}</td>
+            <td>{{ item.changed|date('d/m/Y H:i') }}</td>
+            <td>
+                <span
+                  class="status-badge status-badge--{{ item.status|lower }} {% if item.status == 'Publié' %}status-published{% else %}status-draft{% endif %}">
                   {{ item.status }}
                 </span>
-              </td>
-              <td>
-                <div class="seo-score">
-                  <span class="seo-score__value content-type">{{ item.seo_score }}</span>
-                </div>
-              </td>
-              <td>
-                <div class="content-actions">
-                  <a href="{{ item.url }}" class="btn btn--small" title="Voir">
-                    <i class="fas fa-eye"></i>
-                  </a>
-                  <a href="/node/{{ item.id }}/edit" class="btn btn--small" title="Modifier">
-                    <i class="fas fa-pen-to-square"></i>
-                  </a>
-                </div>
-              </td>
-            </tr>
-          {% endfor %}
+            </td>
+            <td>
+              <div class="seo-score">
+                <span class="seo-score__value content-type">{{ item.seo_score }}</span>
+              </div>
+            </td>
+            <td>
+              <div class="content-actions">
+                <a href="{{ item.url }}" class="btn btn--small" title="Voir">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="/node/{{ item.id }}/edit" class="btn btn--small" title="Modifier">
+                  <i class="fas fa-pen-to-square"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
         </tbody>
       </table>
     </div>
@@ -143,7 +135,10 @@
     {% if pagination is defined and pagination is not null and pagination.total_pages > 0 %}
       <div class="pagination">
         <div class="pagination__info">
-          <span>Page {{ pagination.current_page }} sur {{ pagination.total_pages }}</span>
+          <span>Page {{ pagination.current_page }} sur {{ pagination.total_pages }},</span>
+          <span class="pagination-info__text">
+            affichage de {{ pagination.start_item }} à {{ pagination.end_item }} sur {{ pagination.total_items }} contenus
+          </span>
         </div>
 
         <div class="pagination__controls">
@@ -156,7 +151,8 @@
 
           {# Bouton page précédente #}
           {% if pagination.has_previous %}
-            <a href="{{ pagination.previous_url }}" class="pagination__btn pagination__btn--prev" title="Page précédente">
+            <a href="{{ pagination.previous_url }}" class="pagination__btn pagination__btn--prev"
+               title="Page précédente">
               <i class="fas fa-angle-left"></i>
             </a>
           {% endif %}

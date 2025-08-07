@@ -10,7 +10,7 @@ seo_block.dashboard:
   path: '/admin/content/seo-dashboard'
   defaults:
     _controller: '\Drupal\seo_block\Controller\SeoDashboardController::dashboard'
-    _title: 'Tableau de bord & Reporting'
+    _title: 'Dashboard SEO'
   requirements:
     _permission: 'access seo dashboard'
 
@@ -19,5 +19,7 @@ seo_block.clear_cache:
   defaults:
     _controller: '\Drupal\seo_block\Controller\SeoDashboardController::clearCache'
   requirements:
-    _permission: 'administer seo dashboard'
+    _permission: 'access seo dashboard'
+  options:
+    no_cache: TRUE
 

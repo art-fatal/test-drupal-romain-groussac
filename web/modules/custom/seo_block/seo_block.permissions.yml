@@ -1,0 +1,14 @@
+access seo dashboard:
+  title: 'Accéder au dashboard SEO'
+  description: 'Permet d''accéder au dashboard SEO et de voir les analyses de contenu.'
+  restrict access: TRUE
+
+administer seo dashboard:
+  title: 'Administrer le dashboard SEO'
+  description: 'Permet de gérer les paramètres du dashboard SEO et de vider les caches.'
+  restrict access: TRUE
+
+view seo reports:
+  title: 'Voir les rapports SEO'
+  description: 'Permet de consulter les rapports SEO détaillés et les analyses globales.'
+  restrict access: TRUE 

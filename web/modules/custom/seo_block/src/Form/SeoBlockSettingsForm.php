@@ -50,13 +50,13 @@ class SeoBlockSettingsForm extends ConfigFormBase {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
     
-    $articles_count = $form_state->getValue('articles_count');
+    $articlesCount = $form_state->getValue('articles_count');
     
-    if ($articles_count < 1) {
+    if ($articlesCount < 1) {
       $form_state->setError($form['articles_count'], $this->t('Le nombre d\'articles doit être au moins égal à 1.'));
     }
     
-    if ($articles_count > 15) {
+    if ($articlesCount > 15) {
       $form_state->setError($form['articles_count'], $this->t('Le nombre d\'articles ne peut pas dépasser 15.'));
     }
   }

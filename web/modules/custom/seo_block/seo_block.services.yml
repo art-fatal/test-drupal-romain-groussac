@@ -1,0 +1,16 @@
+services:
+  seo_block.content_repository:
+    class: Drupal\seo_block\Repository\ContentRepository
+    arguments: ['@entity_type.manager', '@cache.default']
+
+  seo_block.seo_calculator:
+    class: Drupal\seo_block\Service\SeoCalculator
+    arguments: ['@entity_type.manager']
+
+  seo_block.dashboard_service:
+    class: Drupal\seo_block\Service\DashboardService
+    arguments: ['@seo_block.content_repository', '@seo_block.seo_calculator', '@messenger']
+
+  seo_block.cache_service:
+    class: Drupal\seo_block\Service\CacheService
+    arguments: ['@messenger']
