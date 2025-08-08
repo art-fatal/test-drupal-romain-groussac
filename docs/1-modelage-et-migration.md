@@ -1,6 +1,6 @@
 # Partie 1 – Modélisation & Migration
 1. Schéma simplifié des entités
-   ![Schéma](../screenshots/entity-schema.png)
+   ![drupal-simplified-schema.png](../screenshots/drupal-simplified-schema.png)
 2. [Migration de Drupal 9 vers Drupal 11](./11-MIGRATION_DRUPAL9_TO_11.md)
 3. [Plan de roll back](./12-ROLLBACK_DRUPAL9_TO_11.md)
 
