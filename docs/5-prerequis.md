@@ -43,6 +43,10 @@ Projet Drupal 9 (version 9.5.11) initialisé avec `composer create-project drupa
   ```bash
   ddev drush config:import --source=config/sync
   ```
+- Cache rebuild:
+  ```bash
+  ddev drush cr
+  ```
 
 ## Accès au site
 - Frontend : aller sur le lien generer par
